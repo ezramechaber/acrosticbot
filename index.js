@@ -2,13 +2,15 @@ String.prototype.toProperCase = function () {
     return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
 
-function flip(number) {
-	return Math.floor(Math.random() * number) === 0;
-}
-
-// function lookupWord(letter, word) {
-
+// function flip(number) {
+// 	return Math.floor(Math.random() * number) === 0;
 // }
+
+// function lookupWord(letter, words, word) {
+// 		var regEx = /(\bletter)\w+/g;
+// 	    var words = data.match(regEx);
+// 	    word = words[Math.floor(Math.random() * words.length)].toProperCase();
+//  }
 
 var fs = require('fs');
 var bword = "B";
@@ -20,18 +22,18 @@ var aword = "A";
 var zword = "Z";
 var iword = "I";
 var poem = "";
-var randomnumber = flip(2)
+// var randomnumber = flip(2)
 
 
 // read our text file
 fs.readFile('words.txt', 'utf8', function(error, data) {
 	
 	// Letter B
-	randomnumber = flip(2);
+	randomnumber = Math.floor(Math.random() * 2) === 0;
 	if (randomnumber == 0) {
 	    //true
-		var regEx = /(\bb)\w+/g;
-	    var bletters = data.match(regEx);
+		var regExE = /(\bb)\w+/g;
+	    var bletters = data.match(regExE);
 	    bword = bletters[Math.floor(Math.random() * bletters.length)].toProperCase();
 	}
 
