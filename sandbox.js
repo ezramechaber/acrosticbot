@@ -17,13 +17,13 @@ function lookupWord(letter,words,word) {
 	var randomnumber = Math.floor(Math.random() * 2) === 0;
 	if (randomnumber == 0) {
 	    //true
-	    fs.readFile('words.txt', 'utf8', function(error, data) {
-	    // console.log(data);
-	    var regExE = new RegExp('(\\b' + letter + ')\\w+', 'g');
-	    var words = data.match(regExE);
-	    var word = words[Math.floor(Math.random() * words.length)].toProperCase();
-	    return word;
-		});
+		fs.readFile('words.txt', 'utf8', function lookup(error, data) {
+		    var regExE = new RegExp('(\\b' + letter + ')\\w+', 'g');
+		    var words = data.match(regExE);
+		    var word = words[Math.floor(Math.random() * words.length)].toProperCase();
+		    console.log(word);
+			});
+		return word;
 	}
 
 
