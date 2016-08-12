@@ -35,12 +35,18 @@ function writePoem () {
 }
 
 function main() {
-    var accessToken = process.argv[4];
-    var tokenSecret = process.argv[5];
+    var accessToken = process.env.ACCESS_TOKEN;
+    var tokenSecret = process.env.TOKEN_SECRET;
 
     var twitter = new twitterAPI({
-        consumerKey: process.argv[2],
-        consumerSecret: process.argv[3]});
+        consumerKey: process.env.APP_KEY,
+        consumerSecret: process.env.APP_SECRET});
+    // var accessToken = process.argv[4];
+    // var tokenSecret = process.argv[5];
+
+    // var twitter = new twitterAPI({
+    //     consumerKey: process.argv[2],
+    //     consumerSecret: process.argv[3]});
 
     twitter.statuses("update",
         {"status": writePoem()},
