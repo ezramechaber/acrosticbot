@@ -1,5 +1,6 @@
 var twitterAPI = require('node-twitter-api');
 var fs = require('fs');
+var util = require('util');
 var word = "benghazi";
 var poem = "";
 
@@ -26,7 +27,7 @@ function lookupWord(letter,wordList,wordPick) {
 
  }
 
-function writePoem (word) {
+function writePoem () {
 	for (var i = 0, len = word.length; i < len; i++) {
 		poem = poem + lookupWord(word[i]) + "\n";
 	}
