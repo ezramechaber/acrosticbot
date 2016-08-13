@@ -3,7 +3,8 @@ var fs = require('fs');
 var util = require('util');
 //define the acrostic word (create a Heroku environmental variable with key 'myWord' and value set to your word)
 var word = process.env.myWord;
-var acrostic = "";
+var acrostic;
+var acrosticArray = [];
 
 String.prototype.toProperCase = function () {
     return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
@@ -36,11 +37,13 @@ function lookupWord(letter,wordList,wordPick) {
 //write our acrostic by taking our base word and then running our lookupWord function for each letter of that word.
 function writeAcrostic () {
 	for (var i = 0, len = word.length; i < len; i++) {
-		//this function technically adds an extra "\n" to the end, should be replaced with a "while" that prevents applying for the last letter
-        acrostic = acrostic + lookupWord(word[i]) + "\n";
+        acrosticArray.push(lookupWord(word[i]));
+        acrostic = acrosticArray.join('\n');
 	}
 	return acrostic;
 }
+
+//console.log(writeAcrostic());
 
 //post to twitter
 function main() {
