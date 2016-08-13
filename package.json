@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ezramechaber/beng/issues"
   },
-  "homepage": "https://github.com/ezramechaber/beng#readme"
+  "homepage": "https://github.com/ezramechaber/beng#readme",
+  "dependencies": { 
+    "node-twitter-api" : "1.7.x"
+  }
 }
