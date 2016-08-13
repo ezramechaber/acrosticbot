@@ -53,20 +53,30 @@ function main() {
     var twitter = new twitterAPI({
         consumerKey: process.env.appKey,
         consumerSecret: process.env.appSecret});
-    // var accessToken = process.argv[4];
-    // var tokenSecret = process.argv[5];
 
-    // var twitter = new twitterAPI({
-    //     consumerKey: process.argv[2],
-    //     consumerSecret: process.argv[3]});
+    twitter.verifyCredentials(accessToken, accessTokenSecret, params, function(error, data, response) {
+        if (error) {
+            //something was wrong with either accessToken or accessTokenSecret 
+            //start over with Step 1 
+        } else {
+            //accessToken and accessTokenSecret can now be used to make api-calls (not yet implemented) 
+            //data contains the user-data described in the official Twitter-API-docs 
+            //you could e.g. display his screen_name 
+            console.log(data["screen_name"]);
+        }
+    });
 
-    twitter.statuses("update",
-        {"status": writeAcrostic()},
+    twitter.statuses("update", {
+        "status": writeAcrostic()
+        },
         accessToken,
         tokenSecret,
         function(error, data, response) {
             if (error) {
                 console.log("something went wrong: " + util.inspect(error));
+            }
+            else {
+                console.log('reply:', response);
             }
         }
     );
