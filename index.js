@@ -54,7 +54,7 @@ function main() {
         consumerKey: process.env.appKey,
         consumerSecret: process.env.appSecret});
 
-    twitter.verifyCredentials(accessToken, accessTokenSecret, params, function(error, data, response) {
+    twitter.verifyCredentials(accessToken, tokenSecret, params, function(error, data, response) {
         if (error) {
             //something was wrong with either accessToken or accessTokenSecret 
             //start over with Step 1 
