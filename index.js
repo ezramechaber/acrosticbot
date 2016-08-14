@@ -47,6 +47,7 @@ function writeAcrostic () {
 
 //post to twitter
 function main() {
+    var params;
     var accessToken = process.env.accessToken;
     var tokenSecret = process.env.tokenSecret;
 
