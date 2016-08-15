@@ -58,11 +58,8 @@ function main() {
     twitter.verifyCredentials(accessToken, tokenSecret, params, function(error, data, response) {
         if (error) {
             //something was wrong with either accessToken or accessTokenSecret 
-            //start over with Step 1 
         } else {
             //accessToken and accessTokenSecret can now be used to make api-calls (not yet implemented) 
-            //data contains the user-data described in the official Twitter-API-docs 
-            //you could e.g. display his screen_name 
             console.log(data["screen_name"]);
         }
     });
